@@ -9,7 +9,8 @@ let randomCity = cities[Math.floor(Math.random() * cities.length)];
 let avatarImage = randomCity.replace(' ', '_');
 
 // Replace our city name in URL and add some cloudinary transformaitons.
-let imagePlaceholder = `https://res.cloudinary.com/dolby-io/image/upload/ar_16:9,c_fill,g_auto,r_20,w_100/v1634690310/dolby-hackathon/cities/${avatarImage}.png`
+
+let imagePlaceholder =  `https://res.cloudinary.com/dolby-io/image/upload/e_art:red_rock/ar_16:9,c_fill,g_auto,r_max,w_200/co_rgb:f21904,g_center,l_text:verdana_32_bold__letter_spacing_10:${avatarImage}/v1634690310/dolby-hackathon/cities/${avatarImage}.png`
 
 /**  Update varibles when form input changes */
 function updateNameValue(e) {
