@@ -16,7 +16,7 @@ let imagePlaceholder =  `https://res.cloudinary.com/dolby-io/image/upload/e_art:
 function updateNameValue(e) {
   randomCity = e.target.value;
   avatarImage = randomCity.replace(' ', '_');
-  imagePlaceholder = `https://res.cloudinary.com/dolby-io/image/upload/ar_16:9,c_fill,g_auto,r_20,w_100/v1634690310/dolby-hackathon/cities/${avatarImage}.png`
+  let imagePlaceholder =  `https://res.cloudinary.com/dolby-io/image/upload/e_art:red_rock/ar_16:9,c_fill,g_auto,r_max,w_200/co_rgb:f21904,g_center,l_text:verdana_32_bold__letter_spacing_10:${avatarImage}/v1634690310/dolby-hackathon/cities/${avatarImage}.png`
   myAvatarImage.src = imagePlaceholder;
   posterArt.src = imagePlaceholder;
 }
