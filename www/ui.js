@@ -1,7 +1,7 @@
 const initUI = () => {
 
   const nameMessage = document.getElementById('name-message');
-  const nameInput = document.getElementById('name-input');
+  // const nameInput = document.getElementById('name-input');
   const conferenceAliasInput = document.getElementById('alias-input');
   const joinButton = document.getElementById('join-btn');
 
@@ -18,12 +18,11 @@ const initUI = () => {
 
   
   const avatarImage = document.getElementById('avatarImage');
-  
-  nameInput.addEventListener('input', updateNameValue);
+
 
   // Update the login message with the name of the user
   nameMessage.innerHTML = `You are logged in as ${randomName}`;
-  nameInput.value = randomName;
+  // nameInput.value = randomName;
   joinButton.disabled = false;
 
   joinButton.onclick = () => {

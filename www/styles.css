@@ -1,7 +1,14 @@
-/* Empty */
+#video-container {
+    flex: auto;
+    background-color: #ffc600;
+    width: 50%;
+} 
+
+
 
 html {
     font-size: 10px;
+    background-color: #ffc600;
   }
 
   body {

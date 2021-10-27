@@ -16,7 +16,6 @@ function updateNameValue(e) {
 const tokenServerURL = 'Enter the url to your token server here';
 
 
-
 /**   initializeToken authorization flow on script load  **/
 
 (function () {
