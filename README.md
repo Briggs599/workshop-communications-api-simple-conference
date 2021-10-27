@@ -64,7 +64,7 @@ Simple Video Conference App:
 
 - Clone and deploy this Simple Video Conference App by clicking the deploy button above; This will set this all up for you, taking you to your new project admin in Netlify.
     
--   Netlify will ask you to authenticate with GitHub; then clone this repo to your GitHub and setup automatic deployment to a Netlify server environment. 
+-   Netlify will ask you to authenticate with GitHub; then clone this repo to your GitHub ORG/ Account and setup automatic deployment to a Netlify server environment. 
 -   Once it has deployed, you’ll find your project’s URL at the top of the site overview page in your Netlify admin, and you’ll be able to visit it and navigate to the Simple Video Conference app.
 
 >**Note**: At first run the app will fail to work; We need to change the tokenServerURL to point to the url of your token server you created in the first part.
