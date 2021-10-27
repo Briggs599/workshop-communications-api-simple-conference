@@ -27,6 +27,7 @@ Follow the instructions at this [repo](https://github.com/dolbyio-samples/commun
 ####  Now that you have your API credentials, you can clone this example project and deploy it to the web using Netlify.
  
 Deploy Your Token Server: 
+
  [![Deploy To Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/dolbyio-samples/communications-api-token-server-netlify) 
 - Clicking the deploy button above will set this all up for you, taking you to your new project admin in Netlify
 
