@@ -1,28 +1,19 @@
 
 /**  Create a list of Cities for our Money Heist Characters */
 const cities = ['Seattle', 'Vancouver', 'Portland', 'Tokyo', 'Berlin', 'Palermo', 'Nairobi', 'Denver', 'Helsinki', 'Rio', 'Moscow', 'Oslo'];
-let randomCity = cities[Math.floor(Math.random() * cities.length)];
-
-// let posterImage = 'https://res.cloudinary.com/dolby-io/image/upload/w_300/v1634690310/dolby-hackathon/cities/Poster.png';
-
-// image names with spaces are replaced with _ underscores
-let avatarImage = randomCity.replace(' ', '_');
-
+let randomName = cities[Math.floor(Math.random() * cities.length)];
+  
 // Replace our city name in URL and add some cloudinary transformaitons.
-
-let imagePlaceholder =  `https://res.cloudinary.com/dolby-io/image/upload/e_art:red_rock/ar_16:9,c_fill,g_auto,r_max,w_200/co_rgb:f21904,g_center,l_text:verdana_32_bold__letter_spacing_10:${avatarImage}/v1634690310/dolby-hackathon/cities/${avatarImage}.png`
+let imagePlaceholder =  `https://res.cloudinary.com/dolby-io/image/upload/e_art:red_rock/ar_16:9,c_fill,g_auto,r_max,w_200/co_rgb:f21904,g_center,l_text:verdana_24_bold__letter_spacing_4:${randomName}/v1634690310/dolby-hackathon/cities/${randomName}.png`
 
 /**  Update varibles when form input changes */
 function updateNameValue(e) {
-  randomCity = e.target.value;
-  avatarImage = randomCity.replace(' ', '_');
-  let imagePlaceholder =  `https://res.cloudinary.com/dolby-io/image/upload/e_art:red_rock/ar_16:9,c_fill,g_auto,r_max,w_200/co_rgb:f21904,g_center,l_text:verdana_32_bold__letter_spacing_10:${avatarImage}/v1634690310/dolby-hackathon/cities/${avatarImage}.png`
-  myAvatarImage.src = imagePlaceholder;
-  posterArt.src = imagePlaceholder;
+  randomName = e.target.value;
 }
 
+
 // URL to our Token Server
-const tokenServerURL = 'https://infallible-borg-a38a3f.netlify.app/api/token-generator';
+const tokenServerURL = 'Enter the url to your token server here';
 
 
 
@@ -49,8 +40,6 @@ async function getTokenAndInitalize() {
     .then((token) => {
       console.info('token received', token);
       initializeConferenceSession()
-      myAvatarImage.src = imagePlaceholder;
-      posterArt.src = imagePlaceholder;
     })
     .catch((error) => {
       console.error(error);
@@ -72,7 +61,7 @@ async function refreshToken() {
 /**  Create the participantInfo object and open the session with the object  */
 async function initializeConferenceSession() {
 
-  let participantInfo = { name: randomCity, avatarUrl: imagePlaceholder }
+  let participantInfo = { name: randomName, avatarUrl: imagePlaceholder, externalId:randomName }
   try {
     // Open a session for the user
     await VoxeetSDK.session.open(participantInfo);
@@ -119,48 +108,8 @@ VoxeetSDK.conference.on('streamRemoved', (participant, stream) => {
   removeParticipantNode(participant);
 });
 
-// Build your list of participants you want to mute
-const participants = [
-  "externalId01",
-  "externalId02",
-  "externalId03"
-]
-
-// Build the JSON payload to send to the participants
-const payload = {
-  "command": "Mute",
-  "content": {
-    "participants": participants
-  }
-}
-
-// The content of the message must be a string
-const json = JSON.stringify(payload);
-
-// Send the message to the other participants
-VoxeetSDK
-  .command
-  .send(json)
-  .then(() => console.log("Message sent successfully."))
-  .catch((error) => console.error("There was an error sending the message.", error));
-
-
-/* Cloudinary Event handlers */
-
-// Cloudinary Upload widget
-document.getElementById("upload_widget").addEventListener("click", function () {
-
-  cloudinary.openUploadWidget({ cloud_name: 'dolby-io', upload_preset: 'avatar', public_id: randomCity, name: randomCity },
-    function (error, result) { 
-      console.log(error, result[0]) 
-
-      imagePlaceholder = `https://res.cloudinary.com/dolby-io/image/upload/ar_16:9,c_fill,g_auto,r_20,w_100/v1634690310/${result[0].public_id}`
-
-      myAvatarImage.src = imagePlaceholder;
-      posterArt.src = imagePlaceholder;
-    });
-}, false);
-
+ 
+ 
 
 
 /* Speech Recognition   */

@@ -16,14 +16,14 @@ const initUI = () => {
   const startRecordingBtn = document.getElementById('start-recording-btn');
   const stopRecordingBtn = document.getElementById('stop-recording-btn');
 
-  const posterArt = document.getElementById('posterArt');
+  
   const avatarImage = document.getElementById('avatarImage');
   
   nameInput.addEventListener('input', updateNameValue);
 
   // Update the login message with the name of the user
-  nameMessage.innerHTML = `You are logged in as ${randomCity}`;
-  nameInput.value = randomCity;
+  nameMessage.innerHTML = `You are logged in as ${randomName}`;
+  nameInput.value = randomName;
   joinButton.disabled = false;
 
   joinButton.onclick = () => {
@@ -215,61 +215,30 @@ const removeVideoNode = (participant) => {
 
 
 const createParticpantCard = (participant) => {
-
-  let avatarCard =  `https://res.cloudinary.com/dolby-io/image/upload/e_art:red_rock/ar_16:9,c_fill,g_auto,r_max,w_300/co_rgb:f21904,g_center,l_text:verdana_32_bold__letter_spacing_10:${participant.info.name}/v1634690310/dolby-hackathon/cities/${participant.info.name}.png`
-
   let newCard = ` <li class="list-group-item  d-flex justify-content-between align-items-center">  
   <img src="${participant.info.avatarUrl}" class="img-fluid rounded-start" alt="${participant.info.name}"> 
   ${participant.info.name} 
-  <span class="badge badge-primary badge-pill">  
-  <button class="btn btn-warning mute-btn" data-id="${participant.id}">Mute</button>
-  </span>
-  <span class="badge badge-primary badge-pill">
-  <button class="btn btn-primary select-card-btn" data-url="${avatarCard}">Show Card</button>
-  </span>
   </li>`
-
   return newCard;
 }
 
 
-function showCard(event) {
-  console.log('Button Clicked');
-  let url = event.target.dataset.url
-  posterArt.src = url;
-}
-
-function muteParticpant(event) {
-  console.log('Mute Button Clicked');
-  let id = event.target.dataset.id
-  alert(id)
-}
 
 
 
 // Add a new participant to the list
 const addParticipantNode = (participant) => {
   // If the participant is the current session user, don't add himself to the list
-  if (participant.id === VoxeetSDK.session.participant.id) return;
+  // if (participant.id === VoxeetSDK.session.participant.id) return;
 
   let participantNode = document.createElement('p');
   participantNode.setAttribute('id', 'participant-' + participant.id);
 
- 
+ console.log('Participant added: ', participant.info);
   participantNode.innerHTML = createParticpantCard(participant);
 
   const participantsList = document.getElementById('participants-list');
   participantsList.appendChild(participantNode);
- 
-  var elements = document.getElementsByClassName("select-card-btn");
-  Array.from(elements).forEach(function(element) {
-    element.addEventListener('click', showCard);
-  });
-
-  var muteElements = document.getElementsByClassName("mute-btn");
-  Array.from(muteElements).forEach(function(element) {
-    element.addEventListener('click', muteParticpant);
-  });
 
 };
 
