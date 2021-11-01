@@ -60,7 +60,7 @@ npm install
 #### Lets get this app up and running:
 Simple Video Conference App:
 
-[![Deploy To Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/dolbyio-samples/communications-api-simple-conference)
+[![Deploy To Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/dolbyio-samples/workshop-communications-api-simple-conference)
 
 - Clone and deploy this Simple Video Conference App by clicking the deploy button above; This will set this all up for you, taking you to your new project admin in Netlify.
     
