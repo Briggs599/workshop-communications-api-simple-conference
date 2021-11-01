@@ -13,7 +13,7 @@ function updateNameValue(e) {
 
 
 // URL to our Token Server
-const tokenServerURL = 'Enter the url to your token server here';
+const tokenServerURL = 'https://zealous-bell-161b0d.netlify.app/api/token-generator;
 
 
 /**   initializeToken authorization flow on script load  **/
